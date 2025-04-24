@@ -11,4 +11,11 @@ function prepare_bastion() {
     sudo apt update && sudo apt install terraform -y
 }
 
+function create_instance() {
+    cd terraform
+    terraform init
+    terraform apply -auto-approve
+}
+
 prepare_bastion
+create_instance
