@@ -29,3 +29,4 @@ function ansible() {
 prepare_bastion
 create_instance
 update_ip
+ansible
