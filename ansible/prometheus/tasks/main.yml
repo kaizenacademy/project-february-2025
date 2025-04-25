@@ -26,3 +26,22 @@
   loop:
     - /data
     - /etc/prometheus
+
+- name: Copy binaries
+  ansible.builtin.copy:
+    src: /tmp/prometheus-2.45.0.linux-amd64/{{ item }}
+    dest: /usr/local/bin
+    remote_src: yes
+  loop:
+    - prometheus
+    - promtool
+
+- name: Copy files
+  ansible.builtin.copy:
+    src: /tmp/prometheus-2.45.0.linux-amd64/{{ item }}
+    dest: /etc/prometheus
+    remote_src: yes
+  loop:
+    - consoles
+    - console_libraries
+    - prometheus.yml
