@@ -15,3 +15,14 @@
     src: /tmp/prometheus.tar.gz
     dest: /tmp
     remote_src: yes
+
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: "{{ item }}"
+    owner: prometheus
+    group: prometheus
+    mode: '0755'
+    state: directory
+  loop:
+    - /data
+    - /etc/prometheus
